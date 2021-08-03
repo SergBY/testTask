@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testTask"> 
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My AngularJS App</title>
+    
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="normalize.css">
+    <script src="lib/angular/angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body>
+    <div class="body__main">
+
+      <header class="header">
+        <div class="header__logo"></div>
+        <div class="menu">
+          <nav class="menu__navbar">
+            <ul class="menu__list">
+              <li class="menu__list-item">
+                <a class="menu__list-link" href="#">Home</a>
+              </li>
+              <li class="menu__list-item">
+                <a class="menu__list-link" href="#">Products</a>
+              </li>
+              <a href="#" class="menu__list-cart menu__list-item"></a>
+            </ul>
+            <div class="burger">
+              <div class="menu-burger"></div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <div class="home">
+        <div class="home__container">
+          <div class="home__container-title">Our clothing , your comfort</div>
+          <div class="home__container-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br> eiusmod tempor incididunt ut labore et dolore <br> magna aliqua.</div>
+        </div>
+        <div class="scroll__btn">
+          <button id="scroll"><img src="img/fa-chevron-down.png" alt="arrow-down" />
+          </a></button>
+        </div>
+      </div>
+
+      <div data-ng-controller="productsCtrl">
+        <div class="wrap">
+          <div class="body-check" id="body">
+            <div class="check-points">
+              <div class="check-point" ng-repeat="(key, val) in showCategory">
+                <input type="checkbox" ng-model="showCategory[key]" id={{key}} class="custom-checkbox"/>
+                  <label for="{{key}}" class="check-point__label"></label>
+                  <span class="check-point__name">{{key}}</span>
+              </div>
+            </div>
+            <button class="check-point__button" ng-click="resetFilter()">see all products</button>
+          </div>
+        </div>
+        
+        <div class="body-products">
+          <div class="products">
+            <div class="products__card" data-ng-repeat="card in data.items |  myfilter:showCategory" ng-if="card.type !== 'Other'">
+              <div class="products__card--select">
+                <select>
+                  <option value="options" ng-repeat="option in card.options">{{option}}</option>
+                </select>
+              </div>
+              <img src="img/{{card.img}}.png" alt="pict">
+              <div class="products__card--inner">
+                <div class="products__card--name">
+                  <p>{{card.name}}</p>
+                  <!-- <p>{{card.type}}</p> -->
+                </div>
+                <div class="products__card--price">
+                  <p>{{card.price}} &euro;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+      <!-- <div ng-controller="productsCtrl">
+        <table id="hotels">
+
+            <tr ng-repeat="card in data.items | filter:type1 | filter:type2 | filter:type3">
+                <td>{{card.name}}</td>
+                <td>{{card.type}}</td>
+                <td>{{card.price}}</td>
+            </tr>
+        </table>
+
+
+        <input type="checkbox" ng-model='type1' ng-true-value="'Men'" ng-false-value='' /> Men &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" ng-model='type2' ng-true-value="'Child'" ng-false-value='' /> Child &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" ng-model='type3' ng-true-value="'Women'" ng-false-value='' /> Women
+    </div> -->
+
+
+      <!-- <div class="wrap">
+        <div class="body-check" ng-controller="productsCtrl">
+          <div class="check-points">
+            <div class="check-point" ng-repeat="(key, value) in showCategory">
+              <input type="checkbox" ng-model="value" class="custom-checkbox" id={{key}} ng-true-value=true
+                ng-false-value=false>
+              <label for={{key}} class="check-point__label"></label>
+              <span class="check-point__name">{{key}}</span>
+
+              <div class="body-products">
+                <div class="products">
+                  <div ng-show="value">
+                    <div ng-repeat="card in data.items" ng-if="card.type == key">
+                      <div class="products__card">
+                        <div class="products__card--select">
+                          <select>
+                            <option value="options" ng-repeat="opt in card.options">{{opt}}</option>
+                          </select>
+                          <img src="img/fa-angle-down.png" alt="">
+                        </div>
+                        <img src="img/{{card.img}}.png">
+                        <div class="products__card--inner">
+                          <div class="products__card--name">
+                            <p>{{card.name}}</p>
+                          </div>
+                          <div class="products__card--price">
+                            <p>{{card.price}} &euro;</p>
+                          </div>
+                          <div class="products__card--price">
+                            <p>{{card.type}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <button class="check-point__button">see all products</button>
+        </div>
+      </div> -->
+
+
+      <!-- <div ng-app="">
+        <p ng-class="{strike: deleted, 'has-error': error}">Map Syntax Example</p>
+        <label>
+          <input type="checkbox" ng-model="deleted">
+          deleted (apply "strike" class)
+        </label><br>
+
+        <label>
+          <input type="checkbox" ng-model="error">
+          error (apply "has-error" class)
+        </label>
+      </div>
+
+      <div class="wrap">
+        <div class="body-check" ng-controller="productsCtrl">
+          <div class="check-points">
+            <div class="check-point" ng-repeat="(key, value) in showCategory">
+
+              <input type="checkbox" ng-model="value" class="custom-checkbox" id={{key}} ng-true-value=true
+                ng-false-value=false>
+              <label for={{key}} class="check-point__label"></label>
+
+              <span class="check-point__name">{{key}}</span>
+              
+            </div>
+          </div>
+          <button class="check-point__button">see all products</button>
+
+          <div class="body-products">
+            <div class="products">
+              <div ng-repeat="card in data.items | filter : card.type = 'Women'">
+                <div >
+                  <div class="products__card">
+                    <div class="products__card--select">
+                      <select>
+                        <option value="options" ng-repeat="o in card.options">{{o}}</option>
+                      </select>
+                      <img src="img/fa-angle-down.png" alt="">
+                    </div>
+                    <img src="img/{{card.img}}.png">
+                    <div class="products__card--inner">
+                      <div class="products__card--name">
+                        <p>{{card.name}}</p>
+                      </div>
+                      <div class="products__card--price">
+                        <p>{{card.price}} &euro;</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+
+      <!-- <div class="wrap">
+        <div class="body-check" ng-controller="productsCtrl">
+          <div class="check-points">
+            <div class="check-point" ng-repeat="(key, value) in showCategory">
+              <input class="custom-checkbox" id={{key}} type="checkbox" ng-model="value" ng-true-value=true ng-false-value=false>
+              <label for={{key}} class="check-point__label"></label>
+              <span class="check-point__name">{{key}}</span>
+            </div>
+          </div>
+          <button class="check-point__button">see all products</button>
+        </div>
+      </div>
+
+      <div class="body-products" ng-controller="productsCtrl">
+        <div class="products">
+          <div class="products__card" ng-repeat="card in data.items">
+            <div class="products__card--select">
+              <select>
+                <option value="options" ng-repeat="o in card.options">{{o}}</option>
+              </select>
+              <img src="img/fa-angle-down.png" alt="">
+            </div>
+            <img src="img/{{card.img}}.png">
+            <div class="products__card--inner">
+              <div class="products__card--name">
+                <p>{{card.name}}</p>
+              </div>
+              <div class="products__card--price">
+                <p>{{card.price}} &euro;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <footer class="footer">
+        <div class="footer__top">
+          <img src="img/fa-twitter.svg" alt="logo twitter">
+          <p class="footer__top--text">“ E-commerce psd theme available ”</p>
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__inner">
+            <div class="footer__inner--title">
+              Trekking
+            </div>
+            <div class="footer__inner--text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+          </div>
+          <div class="footer__menu">
+            <div class="footer__menu--menu">
+              <div ng-controller="menuCtrl" class="footer__menu--list">
+                <ul class="footer__menu--items">
+                  <li ng-repeat="item in data.footerMenu"  class="footer__menu--item">
+                    <a href="{{item.link}}" title={{item.title}}>{{item.name}}</a>
+                  </li>
+                </ul>
+              </div>
+              <p class="footer__menu--copyright">
+                Design by gianluca cosetta
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+  </body>
+</html>

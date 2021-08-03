@@ -1,0 +1,14 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 12" width="15" height="12">
+	<title>Second</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #aa9b77 } 
+	</style>
+	<g id="Second">
+		<g id="Navbar">
+			<g id="Left">
+				<path id="fa-check copia" class="shp0" d="M15 2.34C15 2.09 14.9 1.84 14.73 1.66L13.41 0.28C13.24 0.1 13 0 12.75 0C12.51 0 12.27 0.1 12.1 0.28L5.75 6.92L2.9 3.94C2.73 3.76 2.48 3.66 2.24 3.66C2 3.66 1.76 3.76 1.58 3.94L0.27 5.31C0.09 5.49 0 5.75 0 6C0 6.25 0.09 6.5 0.27 6.69L3.77 10.34L5.09 11.72C5.26 11.9 5.5 12 5.75 12C5.99 12 6.23 11.9 6.4 11.72L7.72 10.34L14.73 3.03C14.9 2.85 15 2.6 15 2.34Z" />
+			</g>
+		</g>
+	</g>
+</svg>
