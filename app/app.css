@@ -41,6 +41,7 @@ body {
 
 .header .menu {
   margin-right: 64px;
+  z-index: 1;
 }
 
 .header .menu__navbar {
@@ -134,8 +135,8 @@ body {
 }
 
 .header .menu .menu-on.menu-burger::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -webkit-transform: rotate(45deg) !important;
+          transform: rotate(45deg) !important;
   top: 0px;
 }
 
@@ -560,7 +561,7 @@ body {
 
 @media screen and (max-width: 768px) {
   .header .menu__list {
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 5vh;
     background: #3e6c99;
@@ -646,8 +647,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .footer__inner,
-  .footer__menu {
+  .footer__inner, .footer__menu {
     margin: 0;
     display: -webkit-box;
     display: -ms-flexbox;

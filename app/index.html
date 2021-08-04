@@ -7,6 +7,7 @@
   <title>testTask AngularJS</title>
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="normalize.css">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
   <script src="lib/angular/angular.js"></script>
   <script src="app.js"></script>
   <script src="main.js"></script>
@@ -60,7 +61,6 @@
           <button class="check-point__button" ng-click="resetFilter()">see all products</button>
         </div>
       </div>
-
       <div class="body-products">
         <div class="products">
           <div class="products__card" ng-repeat="card in data.items |  myfilter:showCategory"

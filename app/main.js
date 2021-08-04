@@ -11,11 +11,14 @@ window.onload = function () {
 	}
 	btn.addEventListener('click', handleButtonClick);
 
+	
+
 	var burger = document.querySelector('.burger');
+  var menuBurger = document.querySelector('.menu-burger');
 	var menuList = document.querySelector('.menu__list');
 
 	burger.onclick = function () {
 		menuList.classList.toggle('active');
-		burger.classList.toggle('menu-on');
+		menuBurger.classList.toggle('menu-on');
 	};
 };

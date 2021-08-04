@@ -1,9 +1,9 @@
-
 @media screen and (min-width: 1601px) {
   .products {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
 
 @media screen and (max-width: 992px) {
   .home__container-title {
@@ -19,11 +19,12 @@
   }
 }
 
+
 @media screen and (max-width: 768px) {
   .header {
     .menu {
       &__list {
-        position: fixed;
+        position: absolute;
         right: 0;
         top: 5vh;
         background: #3e6c99;
@@ -81,36 +82,40 @@
     margin: 0;
   }
 
-  .footer__top {
-    justify-content: center;
 
-    img {
+  .footer {
+    &__top {
+      justify-content: center;
+
+      img {
+        margin: 0;
+      }
+    }
+
+    &__bottom {
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    &__inner,
+    &__menu {
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__inner--text {
+      text-align: center;
+    }
+
+    &__menu--menu {
+      align-items: center;
     }
   }
-
-  .footer__bottom {
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .footer__inner,
-  .footer__menu {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer__inner--text {
-    text-align: center;
-  }
-
-  .footer__menu--menu {
-    align-items: center;
-  }
 }
+
 
 @media screen and (max-width: 480px) {
   .home__container-title {
@@ -131,25 +136,26 @@
     height: 16px;
   }
 
-  .footer__top--text {
-    font-size: 14px;
-  }
+  .footer {
+    &__top--text {
+      font-size: 14px;
+    }
 
-  .footer__bottom {
-    // padding: 0 15%;
-    padding: 0;
-    align-items: center;
-  }
+    &__bottom {
+      padding: 0;
+      align-items: center;
+    }
 
-  .footer__inner--text {
-    width: 220px;
-  }
+    &__inner--text {
+      width: 220px;
+    }
 
-  .footer__menu--item a {
-    font-size: 11px;
-  }
+    &__menu--item a {
+      font-size: 11px;
+    }
 
-  .footer__menu--copyright {
-    font-size: 12px;
+    &__menu--copyright {
+      font-size: 12px;
+    }
   }
 }
