@@ -98,44 +98,22 @@ app.controller('menuCtrl', ['$scope', function ($scope) {
 }]);
 
 
-app.filter('myfilter', function() {
-	return function(items, val) {
-	 var filtered = [];
-	 	 
-	 angular.forEach(items, function(item) {
-			if(val.men == false && val.women == false && val.child == false) {
-				 filtered.push(item);
-			 }
-			 else if(val.men == true && item.type == 'Men'){
-				 filtered.push(item);
-			 }
-			 else if(val.women == true && item.type == 'Women'){
-				 filtered.push(item);
-			 }
-			 else if(val.child == true && item.type == 'Child'){
-				 filtered.push(item);
-			 }
-	 });
- 
-	 return filtered;
- };
-});
+app.filter('myfilter', function () {
+	return function (items, val) {
+		var filtered = [];
 
-window.onload = function() {
-	var btn = document.getElementById('scroll');
-	var body = document.getElementById('body');
-	function handleButtonClick() {
-		body.scrollIntoView({behavior: "smooth"});
-	}
-	btn.addEventListener('click', handleButtonClick);
+		angular.forEach(items, function (item) {
+			if (val.men == false && val.women == false && val.child == false) {
+				filtered.push(item);
+			} else if (val.men == true && item.type == 'Men') {
+				filtered.push(item);
+			} else if (val.women == true && item.type == 'Women') {
+				filtered.push(item);
+			} else if (val.child == true && item.type == 'Child') {
+				filtered.push(item);
+			}
+		});
 
-	var menuBurger = document.querySelector('.menu-burger');
-	var menuList = document.querySelector('.menu__list');
-	
-	menuBurger.onclick = function() {
-		menuList.classList.toggle('active');
-		menuBurger.classList.toggle('menu-on');
+		return filtered;
 	};
-};
-
-
+});
