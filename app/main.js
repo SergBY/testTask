@@ -2,10 +2,10 @@
 
 window.onload = function () {
 	var btn = document.getElementById('scroll');
-	var body = document.getElementById('body');
+	var position = document.getElementById('check');
 
 	function handleButtonClick() {
-		body.scrollIntoView({
+		position.scrollIntoView({
 			behavior: "smooth"
 		});
 	}

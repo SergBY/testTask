@@ -26,7 +26,10 @@
       font-weight: 400;
       text-align: center;
       margin-top: 15px;
-
+      width: 560px;
+      p {
+        margin: 0;
+      }
     }
   }
 
@@ -42,11 +45,15 @@
       background: none;
       border: none;
       cursor: pointer;
+      img {
+        width: 34px;
+        height: 22px;
+      }
     }
   }
 }
 
-.wrap {
+.check-body {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -54,7 +61,7 @@
   background-color: #f5f6f7;
 }
 
-.body-check {
+.check {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,7 +124,7 @@
   }
 }
 
-.body-products {
+.products-body {
   margin: 0;
   min-height: 662px;
   padding: 0 64px;

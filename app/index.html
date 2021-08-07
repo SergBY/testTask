@@ -17,17 +17,17 @@
   <div class="body__main">
 
     <header class="header">
-      <a href="#" class="header__logo"></a>
+      <a ng-href="#" class="header__logo"></a>
       <div class="menu">
         <nav class="menu__navbar">
           <ul class="menu__list">
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Home</a>
+              <a class="menu__list-link" ng-href="#">Home</a>
             </li>
             <li class="menu__list-item">
-              <a class="menu__list-link" href="#">Products</a>
+              <a class="menu__list-link" ng-href="#">Products</a>
             </li>
-            <a href="#" class="menu__list-cart menu__list-item"></a>
+            <a ng-href="#" class="menu__list-cart menu__list-item"></a>
           </ul>
           <div class="burger">
             <div class="menu-burger"></div>
@@ -39,20 +39,20 @@
     <div class="home">
       <div class="home__container">
         <div class="home__container-title">Our clothing , your comfort</div>
-        <div class="home__container-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
-          eiusmod tempor incididunt ut labore et dolore <br> magna aliqua.</div>
+        <div class="home__container-subtitle">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+          <p>magna aliqua.</p></div>
       </div>
       <div class="scroll__btn">
-        <button id="scroll"><img src="img/fa-chevron-down.png" alt="arrow-down" />
-          </a></button>
+        <button id="scroll"><img ng-src="img/fa-chevron-down.png" alt="arrow-down" /></button>
       </div>
     </div>
 
     <div ng-controller="productsCtrl">
-      <div class="wrap">
-        <div class="body-check" id="body">
+      <div class="check-body">
+        <div class="check" id="check">
           <div class="check-points">
-            <div class="check-point" ng-repeat="(key, val) in showCategory">
+            <div class="check-point" ng-repeat="(key, val) in showCategory track by $index">
               <input type="checkbox" ng-model="showCategory[key]" id={{key}} class="custom-checkbox" />
               <label for="{{key}}" class="check-point__label"></label>
               <span class="check-point__name">{{key}}</span>
@@ -61,16 +61,16 @@
           <button class="check-point__button" ng-click="resetFilter()">see all products</button>
         </div>
       </div>
-      <div class="body-products">
+      <div class="products-body">
         <div class="products">
-          <div class="products__card" ng-repeat="card in data.items |  myfilter:showCategory"
+          <div class="products__card" ng-repeat="card in data.items |  myfilter:showCategory track by $index"
             ng-if="card.type !== 'Other'">
             <div class="products__card--select">
               <select>
-                <option value="options" ng-repeat="option in card.options">{{option}}</option>
+                <option value="options" ng-repeat="option in card.options track by $index">{{option}}</option>
               </select>
             </div>
-            <img src="img/{{card.img}}.png" alt="pict">
+            <img ng-src="img/{{card.img}}.png" alt="pict">
             <div class="products__card--inner">
               <div class="products__card--name">
                 <p>{{card.name}}</p>
@@ -87,7 +87,7 @@
 
     <footer class="footer">
       <div class="footer__top">
-        <img src="img/fa-twitter.svg" alt="logo twitter">
+        <img ng-src="img/fa-twitter.svg" alt="logo twitter">
         <p class="footer__top--text">“ E-commerce psd theme available ”</p>
       </div>
       <div class="footer__bottom">
@@ -105,8 +105,8 @@
           <div class="footer__menu--menu">
             <div ng-controller="menuCtrl" class="footer__menu--list">
               <ul class="footer__menu--items">
-                <li ng-repeat="item in data.footerMenu" class="footer__menu--item">
-                  <a href="{{item.link}}" title={{item.title}}>{{item.name}}</a>
+                <li ng-repeat="item in data.footerMenu track by $index" class="footer__menu--item">
+                  <a ng-href="{{item.link}}" title={{item.title}}>{{item.name}}</a>
                 </li>
               </ul>
             </div>
