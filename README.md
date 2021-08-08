@@ -14,4 +14,4 @@
 npm start
 ```
 
-Теперь перейдите к приложению по адресу [`localhost:8000/index.html`][local-app-url].
+Приложение открывается по адресу [`localhost:8000/index.html`].

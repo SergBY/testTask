@@ -65,7 +65,33 @@ app.controller('productsCtrl', ['$scope', function ($scope) {
 			$scope.showCategory[i] = false; 
 		}
 	};
-	
+
+	$scope.dropdown = function (i) {
+		const selectSingle = document.querySelectorAll('.select');
+		const selectSingle_title = selectSingle[i].querySelector('.select__title');
+		const selectSingle_labels = selectSingle[i].querySelectorAll('.select__label');
+
+		function handleClick() {
+			if (selectSingle[i].getAttribute('data-state') === 'active') {
+				selectSingle[i].setAttribute('data-state', '');
+			} else {
+				selectSingle[i].setAttribute('data-state', 'active');
+			}
+			for (let j = 0; j < selectSingle.length; j++) {
+				if (j !== i) {
+					selectSingle[j].setAttribute('data-state', '');
+				}
+			}
+		}
+		handleClick();
+
+		for (let k = 0; k < selectSingle_labels.length; k++) {
+			selectSingle_labels[k].addEventListener('click', (evt) => {
+				selectSingle_title.textContent = evt.target.textContent;
+				selectSingle[i].setAttribute('data-state', '');
+			});
+		}
+	};
 }]);
 
 
@@ -100,7 +126,7 @@ app.controller('menuCtrl', ['$scope', function ($scope) {
 
 app.filter('myfilter', function () {
 	return function (items, val) {
-		var filtered = [];
+		let filtered = [];
 
 		angular.forEach(items, function (item) {
 			if (val.men == false && val.women == false && val.child == false) {

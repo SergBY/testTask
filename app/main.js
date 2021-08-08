@@ -1,8 +1,8 @@
 "use strict";
 
 window.onload = function () {
-	var btn = document.getElementById('scroll');
-	var position = document.getElementById('check');
+	const btn = document.getElementById('scroll');
+	const position = document.getElementById('check');
 
 	function handleButtonClick() {
 		position.scrollIntoView({
@@ -13,9 +13,9 @@ window.onload = function () {
 
 	
 
-	var burger = document.querySelector('.burger');
-  var menuBurger = document.querySelector('.menu-burger');
-	var menuList = document.querySelector('.menu__list');
+	const burger = document.querySelector('.burger');
+  const menuBurger = document.querySelector('.menu-burger');
+	const menuList = document.querySelector('.menu__list');
 
 	burger.onclick = function () {
 		menuList.classList.toggle('active');

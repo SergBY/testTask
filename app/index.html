@@ -66,9 +66,15 @@
           <div class="products__card" ng-repeat="card in data.items |  myfilter:showCategory track by $index"
             ng-if="card.type !== 'Other'">
             <div class="products__card--select">
-              <select>
-                <option value="options" ng-repeat="option in card.options track by $index">{{option}}</option>
-              </select>
+              <form>
+                <div class="select" data-state="" ng-click="dropdown($index)">
+                  <div class="select__title" data-default="{{card.options[0]}}">{{card.options[0]}}</div>
+                  <div class="select__content">                  
+                      <input id="{{ 'object-' + $parent.$id + $index}}" class="select__input" type="radio" name="singleSelect" ng-repeat="option in card.options track by $index"/>
+                      <label for="{{ 'object-' + $parent.$id + $index}}" class="select__label"  ng-repeat="option in card.options track by $index">{{option}}</label>
+                  </div>
+                </div>
+              </form>
             </div>
             <img ng-src="img/{{card.img}}.png" alt="pict">
             <div class="products__card--inner">

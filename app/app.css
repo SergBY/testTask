@@ -361,33 +361,110 @@ body {
           align-items: center;
 }
 
-.products__card--select select {
+.products__card .select {
+  position: relative;
+  margin: 0 auto;
   font-size: 16px;
   color: #424242;
   font-weight: 400;
-  border: none;
-  background: transparent;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+}
+
+.products__card .select[data-state="active"] .select__content {
+  opacity: 1;
+}
+
+.products__card .select[data-state="active"] .select__label + .select__input + .select__label {
+  border-top-width: 1px;
+}
+
+.products__card .select__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 36px;
+  height: 100%;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
   text-transform: uppercase;
-  margin-right: 5px;
-  outline: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 
-.products__card--select select option {
-  background: #f5f6f7;
+.products__card .select__title::before, .products__card .select__title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 10px;
+  height: 2px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background-color: #333333;
+  -webkit-transform: translate(-3px, -50%) rotate(45deg);
+          transform: translate(-3px, -50%) rotate(45deg);
+  margin-right: -20px;
 }
 
-.products__card--select select:not([multiple]) {
-  padding-right: 1.5em;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 0.25em) 0.3em;
-  background-image: url(img/fa-angle-down.png);
+.products__card .select__title::after {
+  -webkit-transform: translate(3px, -50%) rotate(-45deg);
+          transform: translate(3px, -50%) rotate(-45deg);
+}
+
+.products__card .select__title:hover {
+  border-color: #aa9b77;
+}
+
+.products__card .select__title:hover::before, .products__card .select__title:hover::after {
+  background-color: #aa9b77;
+}
+
+.products__card .select__content {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  z-index: 8;
+}
+
+.products__card .select__input {
+  display: none;
+}
+
+.products__card .select__label {
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 45px;
+  height: 25px;
+  padding: 0 16px;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.products__card .select__label:hover {
+  background-color: #aa9b77 !important;
+  color: #ffffff;
 }
 
 .products__card--img {
